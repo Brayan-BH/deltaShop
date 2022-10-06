@@ -7,7 +7,7 @@ namespace ApiDeltaShop.MyDb.Tables
     public class Categorias
     {
         [Key]
-        public int id { get; set; }
-        public string nombre { get; set; }
+        public int idCategoria { get; set; }
+        public string nombreCategoria { get; set; }
     }
 }

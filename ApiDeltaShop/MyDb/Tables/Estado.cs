@@ -7,7 +7,7 @@ namespace ApiDeltaShop.MyDb.Tables
     public class Estado
     {
         [Key]
-        public int id { get; set; }
+        public int idEstado { get; set; }
         public string estado { get; set; }
     }
 }

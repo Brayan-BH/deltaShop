@@ -29,7 +29,7 @@ namespace ApiDeltaShop.Controllers
         {
 
             Producto? producto = db.Productos
-                .Where(c =>c.id == id)
+                .Where(c =>c.idProductos == id)
                 .FirstOrDefault();
             if (producto == null)
             {
