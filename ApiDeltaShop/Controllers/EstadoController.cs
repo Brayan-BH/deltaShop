@@ -23,5 +23,15 @@ namespace ApiDeltaShop.Controllers
             return Ok(estados);
         }
 
+          
+        [HttpPost]
+        [Route("")]
+        public ActionResult Crear([FromBody] Estado estado)
+        {
+            db.Estados.Add(estado);
+            db.SaveChanges();
+            return Ok(estado);
+
+        }
     }
 }

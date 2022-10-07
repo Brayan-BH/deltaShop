@@ -8,7 +8,20 @@ namespace ApiDeltaShop.Controllers
     [Route("/api/v1/DetalleOrden")]
     public class DetalleOrdenController: ControllerBase
     {
-        
+        private readonly MyDbContext db;
+
+        public DetalleOrdenController(MyDbContext context)
+        {
+            db = context;
+        }
+        [HttpGet]
+        [Route("")]
+
+        public ActionResult Listar()
+        {
+            List<DetalleOrden> detalleOrden = db.DetalleOrdenes.ToList();
+            return Ok(detalleOrden);
+        }
 
     }
 }

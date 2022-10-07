@@ -7,7 +7,7 @@ namespace ApiDeltaShop.MyDb.Tables
 
     public class DetalleOrden
     {
-
+        [Key]
         public int idDetalleOrden { get; set; }
         public int idOrden { get; set; }
         public int idProducto { get; set; }

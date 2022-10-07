@@ -10,7 +10,17 @@ namespace ApiDeltaShop.MyDb.Contexts
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Categorias> Categorias { get; set; }
-        public DbSet<DetalleOrden> DetalleOrden { get; set; }
+        public DbSet<DetalleOrden> DetalleOrdenes { get; set; }
+        public DbSet<Orden> Ordenes { get; set; }
+        public DbSet<UsuarioCliente> UsuarioClientes { get; set; }
+        public DbSet<Domicilio> Domicilios { get; set; }
+        public DbSet<DetallePago> DetallePagos { get; set; }
+        public DbSet<DetalleEntrada> DetalleEntradas { get; set; }
+        public DbSet<Entradas> Entradas { get; set; }
+        public DbSet<Rol> Roles { get; set; }
+        public DbSet<RolOperacion> RolOperaciones { get; set; }
+        public DbSet<Operaciones> Operaciones { get; set; }
+        public DbSet<Modulo> Modulos { get; set; }
 
     }
 }
