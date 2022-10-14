@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'App-Service-Delta'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_414EA2EBFF06408397162ECFBF537091 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3CBDF8868DE847E1AD0886B7BC76FA93 }}
           package: .
