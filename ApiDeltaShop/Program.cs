@@ -65,7 +65,8 @@ builder.Services.AddCors(options =>
                     });
 });
 
-string connectionString = "Server=localhost;Database=deltaShop;User Id=sa;Password=V3jojd123";
+string connectionString = "Server=tcp:deltaserver.database.windows.net,1433;Initial Catalog=deltaDB;Persist Security Info=False;User ID=brayan;Password=Aspodb??;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
 //Agregar base de datos
 builder.Services.AddDbContext<MyDbContext>(
     options => options.UseSqlServer(connectionString)
