@@ -56,7 +56,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                     policy =>
                     {
-                        policy.WithOrigins("https://deltashop.azurewebsites.net/"); 
+                        policy.WithOrigins("https://localhost:5188"); 
                         policy.AllowAnyHeader();
                         policy.AllowAnyMethod();
                         policy.AllowAnyOrigin();
