@@ -13,10 +13,11 @@ namespace ApiDeltaShop.MyDb.Contexts
         public DbSet<DetalleOrden> DetalleOrdenes { get; set; }
         public DbSet<Orden> Ordenes { get; set; }
         public DbSet<UsuarioCliente> UsuarioClientes { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Domicilio> Domicilios { get; set; }
         public DbSet<DetallePago> DetallePagos { get; set; }
         public DbSet<DetalleEntrada> DetalleEntradas { get; set; }
-        public DbSet<Entradas> Entradas { get; set; }
+        public DbSet<Entrada> Entradas { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<RolOperacion> RolOperaciones { get; set; }
         public DbSet<Operaciones> Operaciones { get; set; }

@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiDeltaShop.MyDb.Tables
 {
-    [Table("Entradas")]
-    public class Entradas
+    [Table("Entrada")]
+    public class Entrada
     {
         [Key]
         public int idEntrada { get; set; }

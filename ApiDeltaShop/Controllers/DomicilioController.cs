@@ -23,5 +23,74 @@ namespace ApiDeltaShop.Controllers
             return Ok(domicilios);
 
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public ActionResult ObtenerPorId([FromRoute] int id)
+        {
+            Domicilio? domicilios = db.Domicilios
+                .Where(dom => dom.idDomicilio == id)
+                .FirstOrDefault();
+
+            if (domicilios == null)
+            {
+                return NotFound(new {message = "Domicilio no encontrado con el id: "+ id});
+
+            }
+            return Ok(domicilios);
+
+        }
+
+        [HttpPost]
+        [Route("")]
+        public ActionResult Crear([FromBody] Domicilio domicilios)
+        {
+            db.Domicilios.Add(domicilios);
+            db.SaveChanges();
+            return Ok(domicilios);
+
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public ActionResult Eliminar([FromRoute] int id)
+        {
+            Domicilio? domicilios = db.Domicilios
+                .Where(dom => dom.idDomicilio == id)
+                .FirstOrDefault();
+            if (domicilios == null)
+            {
+                return NotFound(new { message = "DetalleOrden no encontrado con el id: " + id });
+
+            }
+            db.Domicilios.Remove(domicilios);
+            db.SaveChanges();
+            return NoContent();
+
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public ActionResult Actualizar([FromRoute] int id ,[FromBody] Domicilio domicilioDatos)
+        {
+            Domicilio? domicilio = db.Domicilios
+                .Where(p => p.idDomicilio == id)
+                .FirstOrDefault();
+            if (domicilio == null)
+            {
+                return NotFound(new { message = "Producto no encontrado con el id: " + id });
+
+            }
+            domicilio.calle = domicilioDatos.calle;
+            domicilio.distrito = domicilioDatos.distrito;
+            domicilio.provincia = domicilioDatos.provincia;
+            domicilio.departamento = domicilioDatos.departamento;
+
+            db.SaveChanges();
+            return NoContent();
+
+        }
+
+
     }
 }

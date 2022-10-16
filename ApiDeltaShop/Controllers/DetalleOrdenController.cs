@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/DetalleOrden")]
-    public class DetalleOrdenController: ControllerBase
+    public class DetalleOrdenController : ControllerBase
     {
         private readonly MyDbContext db;
 
@@ -21,6 +21,34 @@ namespace ApiDeltaShop.Controllers
         {
             List<DetalleOrden> detalleOrden = db.DetalleOrdenes.ToList();
             return Ok(detalleOrden);
+        }
+
+        [HttpPost]
+        [Route("")]
+        public ActionResult Crear([FromBody] DetalleOrden detalleOrdenes)
+        {
+            db.DetalleOrdenes.Add(detalleOrdenes);
+            db.SaveChanges();
+            return Ok(detalleOrdenes);
+
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public ActionResult Eliminar([FromRoute] int id)
+        {
+            DetalleOrden? detalleOrdenes = db.DetalleOrdenes
+                .Where(d => d.idDetalleOrden == id)
+                .FirstOrDefault();
+            if (detalleOrdenes == null)
+            {
+                return NotFound(new { message = "DetalleOrden no encontrado con el id: " + id });
+
+            }
+            db.DetalleOrdenes.Remove(detalleOrdenes);
+            db.SaveChanges();
+            return NoContent();
+
         }
 
     }
