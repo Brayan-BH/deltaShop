@@ -56,7 +56,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                     policy =>
                     {
-                        policy.WithOrigins("http://localhost:5188");
+                        policy.WithOrigins("http://localhost:5188"); 
                         policy.AllowAnyHeader();
                         policy.AllowAnyMethod();
                         policy.AllowAnyOrigin();
@@ -65,7 +65,7 @@ builder.Services.AddCors(options =>
                     });
 });
 
-string connectionString = "Server=tcp:deltaserver.database.windows.net,1433;Initial Catalog=deltaDB;Persist Security Info=False;User ID=brayan;Password=Aspodb??;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+string connectionString = "Server=localhost;Database=deltaShop;User Id=sa;Password=V3jojd123;";
 
 //Agregar base de datos
 builder.Services.AddDbContext<MyDbContext>(
