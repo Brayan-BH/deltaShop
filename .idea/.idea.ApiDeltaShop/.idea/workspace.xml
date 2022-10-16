@@ -8,22 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79a98e5c-68ce-4554-9c8d-0ff830bf6987" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ApiDeltaShop/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.deps.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/PublishOutputs.905104e925.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/staticwebassets.publish.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/ApiDeltaShop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/ApiDeltaShop.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/project.razor.json" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/project.razor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/staticwebassets.pack.sentinel" afterDir="false" />
-    </list>
+    <list default="true" id="79a98e5c-68ce-4554-9c8d-0ff830bf6987" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +114,7 @@
       <workItem from="1665889762961" duration="167000" />
       <workItem from="1665889978387" duration="340000" />
       <workItem from="1665890363948" duration="358000" />
-      <workItem from="1665891228408" duration="1619000" />
+      <workItem from="1665891228408" duration="1913000" />
     </task>
     <servers />
   </component>
