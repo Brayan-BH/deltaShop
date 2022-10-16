@@ -1,70 +1,21 @@
-using ApiDeltaShop.MyDb.Contexts;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-
+using ApiDeltaShop.MyDb.Contexts;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-
-//Add services to the container
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
+builder.Services.AddSwaggerGen();
+string conectionString = "Server=tcp:deltaserver.database.windows.net,1433;Initial Catalog=deltaDB;Persist Security Info=False;User ID=brayan;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-    c.SwaggerDoc("v1", new OpenApiInfo {Title = "ApiDeltaShop", Description = "OpenApi"});
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Description = "Jwt Authorization",
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
-    });
+builder.Services.AddDbContext<MyDbContext>(
+    options => options.UseSqlServer(conectionString)
+    );
 
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement{
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-        },
-        new string[] {}
-        }
-    });
- });
-
-//  builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => 
-//     options.TokenValidationParameters = new TokenValidatedParameters
-//     {
-        
-//     };
-//  );
-
-//CORS Configuration
-// var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
-// builder.Services.AddCors(options =>
-// {
-//     options.AddPolicy(name: MyAllowSpecificOrigins,
-//                     policy =>
-//                     {
-//                         policy.WithOrigins("https://localhost:5188"); 
-//                         policy.AllowAnyHeader();
-//                         policy.AllowAnyMethod();
-//                         policy.AllowAnyOrigin();
-//                         // policy.AllowCredentials();
-
-//                     });
-// });
 // CORS
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
@@ -73,14 +24,6 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod())
 );
-// string connectionString = "Server=localhost;Database=deltaShop;User Id=sa;Password=V3jojd123;";
-string connectionString = "Server=localhost;Database=deltaShop;User Id=sa;Password=V3jojd123;";
-
-
-//Agregar base de datos
-builder.Services.AddDbContext<MyDbContext>(
-    options => options.UseSqlServer(connectionString)
-    );
 
 var app = builder.Build();
 
