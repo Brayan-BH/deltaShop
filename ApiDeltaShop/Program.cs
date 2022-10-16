@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -49,23 +50,32 @@ builder.Services.AddSwaggerGen(c =>
 //  );
 
 //CORS Configuration
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+// var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy(name: MyAllowSpecificOrigins,
+//                     policy =>
+//                     {
+//                         policy.WithOrigins("https://localhost:5188"); 
+//                         policy.AllowAnyHeader();
+//                         policy.AllowAnyMethod();
+//                         policy.AllowAnyOrigin();
+//                         // policy.AllowCredentials();
+
+//                     });
+// });
+// CORS
 builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                    policy =>
-                    {
-                        policy.WithOrigins("https://localhost:5188"); 
-                        policy.AllowAnyHeader();
-                        policy.AllowAnyMethod();
-                        policy.AllowAnyOrigin();
-                        // policy.AllowCredentials();
-
-                    });
-});
-
+    options.AddDefaultPolicy(
+        policy => policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod())
+);
+// string connectionString = "Server=localhost;Database=deltaShop;User Id=sa;Password=V3jojd123;";
 string connectionString = "Server=localhost;Database=deltaShop;User Id=sa;Password=V3jojd123;";
+
 
 //Agregar base de datos
 builder.Services.AddDbContext<MyDbContext>(
@@ -84,8 +94,5 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
-
-//Uso de CORS
-app.UseCors("MyAllowSpecificOrigins");
 
 app.Run();
