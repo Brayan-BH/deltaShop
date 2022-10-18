@@ -8,11 +8,11 @@ namespace ApiDeltaShop.MyDb.Tables
     {
         [Key]
         public int idCliente { get; set; }
-        public string nombres { get; set; }
-        public string apellidos { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public string salt { get; set; }
+        public string nombres { get; set; } = "";
+        public string apellidos { get; set; } = "";
+        public string email { get; set; } = "";
+        public string password { get; set; } = "";
+        public string salt { get; set; } = "";
 
     }
 }

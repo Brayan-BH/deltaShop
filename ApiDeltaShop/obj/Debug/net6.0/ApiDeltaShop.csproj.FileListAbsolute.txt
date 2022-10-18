@@ -119,3 +119,4 @@ D:/Proyectos/Delta/ApiDeltaShop/ApiDeltaShop/obj/Debug/net6.0/ref/ApiDeltaShop.d
 /home/brayan/Descargas/ApiDeltaShop/ApiDeltaShop/bin/Debug/net6.0/Humanizer.dll
 /home/brayan/Descargas/ApiDeltaShop/ApiDeltaShop/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
 /home/brayan/Descargas/ApiDeltaShop/ApiDeltaShop/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/brayan/Descargas/ApiDeltaShop/ApiDeltaShop/bin/Debug/net6.0/jose-jwt.dll

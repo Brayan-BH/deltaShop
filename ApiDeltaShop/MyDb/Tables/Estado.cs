@@ -8,6 +8,6 @@ namespace ApiDeltaShop.MyDb.Tables
     {
         [Key]
         public int idEstado { get; set; }
-        public string estado { get; set; }
+        public string estado { get; set; } = "";
     }
 }

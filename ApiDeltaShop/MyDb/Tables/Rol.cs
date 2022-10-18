@@ -8,7 +8,7 @@ namespace ApiDeltaShop.MyDb.Tables
     {
         [Key]
         public int idRol { get; set; }
-        public string rol { get; set; }
+        public string rol { get; set; } = "";
 
 
     }

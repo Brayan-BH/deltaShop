@@ -23,5 +23,15 @@ namespace ApiDeltaShop.Controllers
             return Ok(roles);
 
         }
+        
+        [HttpPost]
+        [Route("/create-rol/")]
+        public ActionResult CrearRol([FromBody] Rol rol)
+        {
+            db.Roles.Add(rol);
+            db.SaveChanges();
+            return Ok(rol);
+
+        }
     }
 }

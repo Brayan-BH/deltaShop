@@ -63,6 +63,10 @@
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "jose-jwt": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             }
           },
           "imports": [

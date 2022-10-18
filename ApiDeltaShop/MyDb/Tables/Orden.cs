@@ -8,10 +8,10 @@ namespace ApiDeltaShop.MyDb.Tables
     {
         [Key]
         public int idOrden { get; set; }
-        public string idCliente { get; set; }
+        public int idCliente { get; set; }
         public float total { get; set; }
-        public string horaCierre { get; set; }
-        public string horaOrden { get; set; }
+        public string horaCierre { get; set; } = "";
+        public string horaOrden { get; set; } = "";
         public DateTime fecha { get; set; }
         public char estado { get; set; }
         public int idDomicilio { get; set; }

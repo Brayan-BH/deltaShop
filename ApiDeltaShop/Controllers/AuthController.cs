@@ -1,5 +1,7 @@
-﻿using ApiDeltaShop.MyDb.Contexts;
+﻿using System.Text;
+using ApiDeltaShop.MyDb.Contexts;
 using ApiDeltaShop.MyDb.Tables;
+using Jose;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiDeltaShop.Controllers
@@ -17,30 +19,50 @@ namespace ApiDeltaShop.Controllers
 
         [HttpPut]
         [Route("/login")]
-        public ActionResult Login([FromBody] Usuario usuario)
+        public ActionResult Login([FromBody] usuarioAuth auth)
         {
-            // List<Usuario> usuarios = db.Usuarios.ToList();
-
-            //Nulable(?) => Puede ser un producto o nulo 
+            var response = new Response();
+            //Nulable(?) => Puede ser nulo 
             Usuario? usuarios = db.Usuarios
-                .Where(u => u.user == usuario.user)
+                .Where(u => u.user == auth.user)
                 .FirstOrDefault();
 
             if (usuarios == null)
             {
-                return NotFound(new { message = "Usuario no encontrado con el id: "});
+                response.statusCode = 404;
+                response.message = "User does not exist";
+                return Ok(response);
 
             }
-            if (usuarios?.password != usuarios?.password)
+            if (usuarios?.password != auth?.password)
             {
-                return NotFound(new { message = "Usuario no encontrado con el id: "});
+                response.statusCode = 404;
+                response.message = "User does not exist";
+                return Ok(response);
             }
 
-            return Ok(usuario);
+            //Creacion del diccionario para el acceso del usuario
+            var payload = new Dictionary<string, object>()
+            {
 
+                {"id","id"},
+                {"rol","rol"},
+                //token expiration
+                { "exp", DateTime.Now.AddHours(5) }
+            };
 
+            var secretKey = Encoding.ASCII.GetBytes("admindb");
+            string token = Jose.JWT.Encode(payload, secretKey, JwsAlgorithm.HS256);
+
+            // usuario.password = token;
+            var data = new Dictionary<string, object>()
+            {
+                {"token", token}
+            };
+
+            response.data = data;
+            return Ok(response);
 
         }
-
     }
 }

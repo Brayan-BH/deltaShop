@@ -9,13 +9,13 @@ namespace ApiDeltaShop.MyDb.Tables
         [Key]
         public int idDomicilio { get; set; }
         public int idUsuario { get; set; }
-        public string calle { get; set; }
-        public string distrito { get; set; }
-        public string provincia { get; set; }
-        public string departamento { get; set; }
-        public string pais { get; set; }
+        public string calle { get; set; } = "";
+        public string distrito { get; set; } = "";
+        public string provincia { get; set; } = "";
+        public string departamento { get; set; } = "";
+        public string pais { get; set; } = "";
         public int codigoPostal { get; set; }
-        public string referencia { get; set; }
+        public string referencia { get; set; } = "";
 
     }
 }

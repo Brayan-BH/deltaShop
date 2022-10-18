@@ -9,7 +9,7 @@ namespace ApiDeltaShop.MyDb.Tables
     {
         [Key]
         public int idOperaciones { get; set; }
-        public string nombreOperacion { get; set; }
+        public string nombreOperacion { get; set; } = "";
         public int idModulo { get; set; }
 
     }

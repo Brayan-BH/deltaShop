@@ -14,18 +14,18 @@ namespace ApiDeltaShop.Controllers
         {
             db = context;
         }
-
+        //Devuelve toddos los usuarios
         [HttpGet]
-        [Route("")]
+        [Route("/get/a-user")]
         public ActionResult Listar()
         {
             List<Usuario> usuarios = db.Usuarios.ToList();
             return Ok(usuarios);
 
         }
-
+        //Registra  los usuarios
         [HttpPost]
-        [Route("")]
+        [Route("/create-user")]
         public ActionResult Crear([FromBody] Usuario usuario)
         {
             db.Usuarios.Add(usuario);
@@ -55,28 +55,28 @@ namespace ApiDeltaShop.Controllers
 
         }
         
-        [HttpGet]
-        [Route("{user}/{password}")]
-        public ActionResult ObtenerPorId([FromRoute] string user, [FromRoute] string password)
-        {
-            Usuario model = new Usuario()
-            {
-                user = user,
-                password = password
-            };
+        // [HttpGet]
+        // [Route("{user}/{password}")]
+        // public ActionResult ObtenerPorId([FromRoute] string user, [FromRoute] string password)
+        // {
+        //     Usuario model = new Usuario()
+        //     {
+        //         user = user,
+        //         password = password
+        //     };
 
-            //Nulable(?) => Puede ser un producto o nulo 
-            Usuario? usuario = db.Usuarios
-                .Where(u => u.user == user)
-                .FirstOrDefault();
+        //     //Nulable(?) => Puede ser un producto o nulo 
+        //     Usuario? usuario = db.Usuarios
+        //         .Where(u => u.user == user)
+        //         .FirstOrDefault();
 
-            if (usuario == null)
-            {
-                return NotFound(new {message = "Usuario no encontrado con el id: "+ user});
+        //     if (usuario == null)
+        //     {
+        //         return NotFound(new {message = "Usuario no encontrado con el id: "+ user});
 
-            }
-            return Ok(usuario);
+        //     }
+        //     return Ok(usuario);
 
-        }
+        // }
     }
 }
