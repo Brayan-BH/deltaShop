@@ -8,7 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79a98e5c-68ce-4554-9c8d-0ff830bf6987" name="Changes" comment="" />
+    <list default="true" id="79a98e5c-68ce-4554-9c8d-0ff830bf6987" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ApiDeltaShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ApiDeltaShop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ref/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ref/ApiDeltaShop.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/refint/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/refint/ApiDeltaShop.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/staticwebassets.pack.sentinel" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,9 +45,44 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Azure - Publish Web App.Publish ApiDeltaShop to Azure">
-    <configuration name="Publish ApiDeltaShop to Azure" type="AzureDotNetWebAppPublish" factoryName="Azure Web App">
+  <component name="RunManager" selected="Azure - Publish Web App.Publish ApiDeltaShop to Azure (1)">
+    <configuration name="Publish ApiDeltaShop to Azure (1)" type="AzureDotNetWebAppPublish" factoryName="Azure Web App">
       <option name="AZURE_WEB_APP_PROJECT" value="$PROJECT_DIR$/ApiDeltaShop/ApiDeltaShop.csproj" />
+      <option name="AZURE_WEB_APP_SUBSCRIPTION_ID" value="88f35555-088c-47f9-986e-2c393a793088" />
+      <option name="AZURE_WEB_APP_IS_CREATE_APP" value="0" />
+      <option name="AZURE_WEB_APP_ID" value="/subscriptions/88f35555-088c-47f9-986e-2c393a793088/resourceGroups/deltaShop/providers/Microsoft.Web/sites/deltashop" />
+      <option name="AZURE_WEB_APP_NAME" value="webapp-221016110351" />
+      <option name="AZURE_WEB_APP_IS_CREATE_RESOURCE_GROUP" value="1" />
+      <option name="AZURE_WEB_APP_RESOURCE_GROUP_NAME" value="rg-221016110351" />
+      <option name="AZURE_WEB_APP_OPERATING_SYSTEM" value="WINDOWS" />
+      <option name="AZURE_WEB_APP_IS_CREATE_APP_SERVICE_PLAN" value="1" />
+      <option name="AZURE_WEB_APP_SERVICE_PLAN_ID" value="" />
+      <option name="AZURE_WEB_APP_SERVICE_PLAN_NAME" value="appsp-221016110351" />
+      <option name="AZURE_WEB_APP_LOCATION" value="eastus" />
+      <option name="AZURE_WEB_APP_PRICING_TIER" value="S1" />
+      <option name="AZURE_WEB_APP_NET_FRAMEWORK" value="4.7" />
+      <option name="AZURE_WEB_APP_NET_CORE_RUNTIME" value="DOTNETCORE 6.0" />
+      <option name="AZURE_WEB_APP_IS_DEPLOY_TO_SLOT" value="0" />
+      <option name="AZURE_WEB_APP_SLOT_NAME" value="" />
+      <option name="AZURE_WEB_APP_OPEN_BROWSER_PUBLISH" value="0" />
+      <option name="AZURE_SQL_DATABASE_SUBSCRIPTION_ID" value="4f22340a-eb51-4beb-bad9-cac01c2f4ccd" />
+      <option name="AZURE_SQL_DATABASE_IS_ENABLED" value="0" />
+      <option name="AZURE_SQL_DATABASE_CONNECTION_STRING_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE" value="0" />
+      <option name="AZURE_SQL_DATABASE_ID" value="" />
+      <option name="AZURE_SQL_DATABASE_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE_RESOURCE_GROUP" value="0" />
+      <option name="AZURE_SQL_DATABASE_RESOURCE_GROUP_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_IS_CREATE_SQL_SERVER" value="0" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_ID" value="" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_NAME" value="" />
+      <option name="AZURE_SQL_DATABASE_SQL_SERVER_ADMIN_LOGIN" value="N/A" />
+      <option name="AZURE_SQL_DATABASE_LOCATION" value="eastus" />
+      <option name="AZURE_SQL_DATABASE_COLLATION" value="SQL_Latin1_General_CP1_CI_AS" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish ApiDeltaShop to Azure" type="AzureDotNetWebAppPublish" factoryName="Azure Web App">
+      <option name="AZURE_WEB_APP_PROJECT" value="" />
       <option name="AZURE_WEB_APP_SUBSCRIPTION_ID" value="88f35555-088c-47f9-986e-2c393a793088" />
       <option name="AZURE_WEB_APP_IS_CREATE_APP" value="0" />
       <option name="AZURE_WEB_APP_ID" value="/subscriptions/88f35555-088c-47f9-986e-2c393a793088/resourceGroups/deltaShop/providers/Microsoft.Web/sites/deltashop" />
@@ -50,7 +94,7 @@
       <option name="AZURE_WEB_APP_SERVICE_PLAN_ID" value="" />
       <option name="AZURE_WEB_APP_SERVICE_PLAN_NAME" value="" />
       <option name="AZURE_WEB_APP_LOCATION" value="eastus" />
-      <option name="AZURE_WEB_APP_PRICING_TIER" value="S1" />
+      <option name="AZURE_WEB_APP_PRICING_TIER" value="" />
       <option name="AZURE_WEB_APP_NET_FRAMEWORK" value="4.7" />
       <option name="AZURE_WEB_APP_NET_CORE_RUNTIME" value="DOTNETCORE 6.0" />
       <option name="AZURE_WEB_APP_IS_DEPLOY_TO_SLOT" value="0" />
@@ -114,7 +158,8 @@
       <workItem from="1665889762961" duration="167000" />
       <workItem from="1665889978387" duration="340000" />
       <workItem from="1665890363948" duration="358000" />
-      <workItem from="1665891228408" duration="1913000" />
+      <workItem from="1665891228408" duration="2373000" />
+      <workItem from="1665936014883" duration="233000" />
     </task>
     <servers />
   </component>
