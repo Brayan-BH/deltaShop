@@ -13,7 +13,8 @@ namespace ApiDeltaShop.MyDb.Tables
         public string modelo { get; set; } 
         public string color { get; set;} 
         public float precio { get; set;}
-        public string imagen { get; set;} 
+        public string imagen { get; set;}
+        public string descripcion { get; set;} 
         public int idCategoria { get; set; }
         // public int idEstado { get; set; }
 
