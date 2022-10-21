@@ -16,7 +16,7 @@ namespace ApiDeltaShop.MyDb.Tables
         public string? imagen { get; set;}
         public string? descripcion { get; set;} 
         public int? idCategoria { get; set; }
-        // public int idEstado { get; set; }
+        public int idEstado { get; set; }
 
     }
 }
