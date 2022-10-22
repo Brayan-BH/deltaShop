@@ -20,7 +20,7 @@ namespace ApiDeltaShop.Controllers
         public ActionResult Listar()
         {
             List<Orden> ordenes = db.Ordenes.ToList();
-            return Ok(new {data = ordenes});
+            return Ok(new {Ordenes = ordenes});
 
         }
 

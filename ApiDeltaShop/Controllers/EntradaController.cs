@@ -19,7 +19,7 @@ namespace ApiDeltaShop.Controllers
         public ActionResult Listar()
         {
             List<Entrada> entradas = db.Entradas.ToList();
-            return Ok(new {data = entradas});
+            return Ok(new {Entradas = entradas});
         }
 
         [HttpPut]
