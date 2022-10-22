@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/categorias")]
-    public class CategoriaController: ControllerBase
+    public class CategoriaController : ControllerBase
     {
         //Acceso a las base de datos ya no setea la configuracion a cada rato
         private readonly MyDbContext db;
@@ -19,8 +19,14 @@ namespace ApiDeltaShop.Controllers
         [Route("")]
         public ActionResult ListarAll()
         {
+            var response = new Response();
             List<Categorias> categorias = db.Categorias.ToList();
-            return Ok(new{Categorias = categorias});
+            var data = new Dictionary<string, object>()
+            {
+                {"categorias", categorias}
+            };
+            response.data = data;
+            return Ok(response);
         }
 
         [HttpGet]
@@ -29,7 +35,7 @@ namespace ApiDeltaShop.Controllers
         {
 
             Categorias? categorias = db.Categorias
-                .Where(c =>c.idCategoria == id)
+                .Where(c => c.idCategoria == id)
                 .FirstOrDefault();
             if (categorias == null)
             {
@@ -39,7 +45,7 @@ namespace ApiDeltaShop.Controllers
             return Ok(categorias);
 
         }
-        
+
         [HttpPost]
         [Route("")]
         public ActionResult Crear([FromBody] Categorias categoria)

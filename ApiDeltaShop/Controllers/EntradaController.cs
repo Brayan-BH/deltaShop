@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/entradas")]
-    public class EntradaController: ControllerBase
+    public class EntradaController : ControllerBase
     {
         private readonly MyDbContext db;
         public EntradaController(MyDbContext context)
@@ -18,13 +18,19 @@ namespace ApiDeltaShop.Controllers
 
         public ActionResult Listar()
         {
+            var response = new Response();
             List<Entrada> entradas = db.Entradas.ToList();
-            return Ok(new {Entradas = entradas});
+            var data = new Dictionary<string, object>()
+            {
+                {"entradas", entradas}
+            };
+            response.data = data;
+            return Ok(response);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public ActionResult Actualizar([FromRoute] int id ,[FromBody] Entrada entradaDatos)
+        public ActionResult Actualizar([FromRoute] int id, [FromBody] Entrada entradaDatos)
         {
             Entrada? entradas = db.Entradas
                 .Where(e => e.idEntrada == id)

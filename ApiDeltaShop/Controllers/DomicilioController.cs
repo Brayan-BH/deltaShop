@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/domicilio")]
-    public class DomicilioController: ControllerBase
+    public class DomicilioController : ControllerBase
     {
         private readonly MyDbContext db;
 
@@ -19,9 +19,14 @@ namespace ApiDeltaShop.Controllers
         [Route("")]
         public ActionResult Listar()
         {
+            var response = new Response();
             List<Domicilio> domicilios = db.Domicilios.ToList();
-            return Ok(new {Domicilio = domicilios});
-
+            var data = new Dictionary<string, object>()
+            {
+                {"domicilios", domicilios}
+            };
+            response.data = data;
+            return Ok(response);
         }
 
         [HttpGet]
@@ -34,7 +39,7 @@ namespace ApiDeltaShop.Controllers
 
             if (domicilios == null)
             {
-                return NotFound(new {message = "Domicilio no encontrado con el id: "+ id});
+                return NotFound(new { message = "Domicilio no encontrado con el id: " + id });
 
             }
             return Ok(domicilios);
@@ -71,7 +76,7 @@ namespace ApiDeltaShop.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public ActionResult Actualizar([FromRoute] int id ,[FromBody] Domicilio domicilioDatos)
+        public ActionResult Actualizar([FromRoute] int id, [FromBody] Domicilio domicilioDatos)
         {
             Domicilio? domicilio = db.Domicilios
                 .Where(p => p.idDomicilio == id)

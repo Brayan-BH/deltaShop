@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/usuarioCliente")]
-    public class UsuarioClienteController: ControllerBase
+    public class UsuarioClienteController : ControllerBase
     {
         private readonly MyDbContext db;
 
@@ -19,9 +19,14 @@ namespace ApiDeltaShop.Controllers
         [Route("")]
         public ActionResult Listar()
         {
+            var response = new Response();
             List<UsuarioCliente> usuarioClientes = db.UsuarioClientes.ToList();
-            return Ok(new {UsuarioClientes = usuarioClientes});
-
+            var data = new Dictionary<string, object>()
+            {
+                {"usuarioClientes", usuarioClientes}
+            };
+            response.data = data;
+            return Ok(response);
         }
 
         [HttpPost]
@@ -30,7 +35,26 @@ namespace ApiDeltaShop.Controllers
         {
             db.UsuarioClientes.Add(usuarioClientes);
             db.SaveChanges();
-           return Ok(usuarioClientes);
+            return Ok(usuarioClientes);
+
+        }
+
+        [HttpPut]
+        [Route("{idUsuarioCLiente}")]
+        public ActionResult Actualizar([FromRoute] int idUsuarioCLiente, [FromBody] UsuarioCliente usuarioClientesDato)
+        {
+            UsuarioCliente? usuarioCliente = db.UsuarioClientes
+                .Where(uc => uc.idCliente == idUsuarioCLiente)
+                .FirstOrDefault();
+            if (usuarioCliente == null)
+            {
+                return NotFound(new { message = "Categoria no encontrado con el id: " + idUsuarioCLiente });
+
+            }
+            usuarioClientesDato.password = usuarioClientesDato.password;
+
+            db.SaveChanges();
+            return NoContent();
 
         }
     }

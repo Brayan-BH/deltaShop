@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/roles")]
-    public class RolController: ControllerBase
+    public class RolController : ControllerBase
     {
         private readonly MyDbContext db;
 
@@ -19,11 +19,16 @@ namespace ApiDeltaShop.Controllers
         [Route("")]
         public ActionResult Listar()
         {
+            var response = new Response();
             List<Rol> roles = db.Roles.ToList();
-            return Ok(new {Roles = roles});
-
+            var data = new Dictionary<string, object>()
+            {
+                {"roles", roles}
+            };
+            response.data = data;
+            return Ok(response);
         }
-        
+
         [HttpPost]
         [Route("/create-rol/")]
         public ActionResult CrearRol([FromBody] Rol rol)

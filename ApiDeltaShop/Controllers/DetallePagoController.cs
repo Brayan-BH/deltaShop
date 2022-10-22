@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/detallePago")]
-    public class DetallePagoController: ControllerBase
+    public class DetallePagoController : ControllerBase
     {
         private readonly MyDbContext db;
 
@@ -19,9 +19,14 @@ namespace ApiDeltaShop.Controllers
         [Route("")]
         public ActionResult Listar()
         {
+            var response = new Response();
             List<DetallePago> detallePagos = db.DetallePagos.ToList();
-            return Ok(new {DetallePagos = detallePagos});
-
+            var data = new Dictionary<string, object>()
+            {
+                {"detallePagos", detallePagos}
+            };
+            response.data = data;
+            return Ok(response);
         }
     }
 }

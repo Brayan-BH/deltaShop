@@ -19,8 +19,14 @@ namespace ApiDeltaShop.Controllers
         [Route("")]
         public ActionResult Listar()
         {
+            var response = new Response();
             List<Producto> productos = db.Productos.ToList();
-            return Ok(new{Productos = productos});
+            var data = new Dictionary<string, object>()
+            {
+                {"productos", productos}
+            };
+            response.data = data;
+            return Ok(response);
 
         }
 

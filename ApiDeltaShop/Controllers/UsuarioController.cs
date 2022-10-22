@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/usuarios")]
-    public class UsuarioController: ControllerBase
+    public class UsuarioController : ControllerBase
     {
         private readonly MyDbContext db;
 
@@ -19,8 +19,14 @@ namespace ApiDeltaShop.Controllers
         [Route("/get/a-user")]
         public ActionResult Listar()
         {
+            var response = new Response();
             List<Usuario> usuarios = db.Usuarios.ToList();
-            return Ok(new{Usuarios = usuarios});
+            var data = new Dictionary<string, object>()
+            {
+                {"usuarios", usuarios}
+            };
+            response.data = data;
+            return Ok(response);
 
         }
         //Registra  los usuarios
@@ -30,13 +36,13 @@ namespace ApiDeltaShop.Controllers
         {
             db.Usuarios.Add(usuario);
             db.SaveChanges();
-           return Ok(usuario);
+            return Ok(usuario);
 
         }
 
         [HttpPut]
         [Route("{id}")]
-        public ActionResult Actualizar([FromRoute] int id ,[FromBody] Usuario usuarioDatos)
+        public ActionResult Actualizar([FromRoute] int id, [FromBody] Usuario usuarioDatos)
         {
             Usuario? usuarios = db.Usuarios
                 .Where(u => u.IdUsuarios == id)
@@ -54,7 +60,7 @@ namespace ApiDeltaShop.Controllers
             return NoContent();
 
         }
-        
+
         // [HttpGet]
         // [Route("{user}/{password}")]
         // public ActionResult ObtenerPorId([FromRoute] string user, [FromRoute] string password)

@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/Operaciones")]
-    public class OperacionController: ControllerBase
+    public class OperacionController : ControllerBase
     {
         private readonly MyDbContext db;
 
@@ -19,9 +19,14 @@ namespace ApiDeltaShop.Controllers
         [Route("")]
         public ActionResult Listar()
         {
+            var response = new Response();
             List<Operaciones> operaciones = db.Operaciones.ToList();
-            return Ok(new {Operaciones = operaciones});
-
+            var data = new Dictionary<string, object>()
+            {
+                {"operaciones", operaciones}
+            };
+            response.data = data;
+            return Ok(response);
         }
     }
 }
