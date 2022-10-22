@@ -10,12 +10,17 @@
   <component name="ChangeListManager">
     <list default="true" id="79a98e5c-68ce-4554-9c8d-0ff830bf6987" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ApiDeltaShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ApiDeltaShop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/ApiDeltaShop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/ApiDeltaShop.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/Controllers/UsuarioController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/Controllers/UsuarioController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/MyDb/Tables/Producto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/MyDb/Tables/Producto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/bin/Debug/net6.0/ApiDeltaShop.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ApiDeltaShop.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/project.razor.json" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/project.razor.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ref/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/ref/ApiDeltaShop.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/refint/ApiDeltaShop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/Debug/net6.0/refint/ApiDeltaShop.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiDeltaShop/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/ApiDeltaShop/obj/staticwebassets.pack.sentinel" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +64,7 @@
       <option name="AZURE_WEB_APP_SERVICE_PLAN_ID" value="" />
       <option name="AZURE_WEB_APP_SERVICE_PLAN_NAME" value="appsp-221016110351" />
       <option name="AZURE_WEB_APP_LOCATION" value="eastus" />
-      <option name="AZURE_WEB_APP_PRICING_TIER" value="S1" />
+      <option name="AZURE_WEB_APP_PRICING_TIER" value="" />
       <option name="AZURE_WEB_APP_NET_FRAMEWORK" value="4.7" />
       <option name="AZURE_WEB_APP_NET_CORE_RUNTIME" value="DOTNETCORE 6.0" />
       <option name="AZURE_WEB_APP_IS_DEPLOY_TO_SLOT" value="0" />
@@ -160,6 +165,7 @@
       <workItem from="1665890363948" duration="358000" />
       <workItem from="1665891228408" duration="2373000" />
       <workItem from="1665936014883" duration="233000" />
+      <workItem from="1666404118929" duration="144000" />
     </task>
     <servers />
   </component>
