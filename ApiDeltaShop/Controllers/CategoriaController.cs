@@ -20,7 +20,7 @@ namespace ApiDeltaShop.Controllers
         public ActionResult ListarAll()
         {
             List<Categorias> categorias = db.Categorias.ToList();
-            return Ok(new{Categorias = categorias});
+            return Ok(new{dataCategoria = categorias});
         }
 
         [HttpGet]
