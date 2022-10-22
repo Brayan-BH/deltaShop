@@ -20,7 +20,17 @@ namespace ApiDeltaShop.Controllers
         public ActionResult Listar()
         {
             List<UsuarioCliente> usuarioClientes = db.UsuarioClientes.ToList();
-            return Ok(usuarioClientes);
+            return Ok(new {data = usuarioClientes});
+
+        }
+
+        [HttpPost]
+        [Route("")]
+        public ActionResult Crear([FromBody] UsuarioCliente usuarioClientes)
+        {
+            db.UsuarioClientes.Add(usuarioClientes);
+            db.SaveChanges();
+           return Ok(usuarioClientes);
 
         }
     }

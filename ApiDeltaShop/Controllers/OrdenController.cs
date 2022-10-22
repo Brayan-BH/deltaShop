@@ -20,7 +20,7 @@ namespace ApiDeltaShop.Controllers
         public ActionResult Listar()
         {
             List<Orden> ordenes = db.Ordenes.ToList();
-            return Ok(ordenes);
+            return Ok(new {data = ordenes});
 
         }
 
@@ -34,25 +34,25 @@ namespace ApiDeltaShop.Controllers
 
         }
 
-        // [HttpPut]
-        // [Route("{id}")]
-        // public ActionResult Actualizar([FromRoute] int id, [FromBody] Orden ordeneDatos)ls
-        // {
-        //     Orden? ordenes = db.Ordenes
-        //         .Where(o => o.idOrden == id)
-        //         .FirstOrDefault();
-        //     if (ordenes == null)
-        //     {
-        //         return NotFound(new { message = "Orden no encontrado con el id: " + id });
+        [HttpPut]
+        [Route("{id}")]
+        public ActionResult Actualizar([FromRoute] int id, [FromBody] Orden ordeneDatos)
+        {
+            Orden? ordenes = db.Ordenes
+                .Where(o => o.idOrden == id)
+                .FirstOrDefault();
+            if (ordenes == null)
+            {
+                return NotFound(new { message = "Orden no encontrado con el id: " + id });
 
-        //     }
-        //     ordeneDatos.total = ordeneDatos.total;
-        //     ordeneDatos.estado = ordeneDatos.estado;
+            }
+            ordeneDatos.total = ordeneDatos.total;
+            ordeneDatos.estado = ordeneDatos.estado;
 
-        //     db.SaveChanges();
-        //     return NoContent();
+            db.SaveChanges();
+            return NoContent();
 
-        // }
+        }
 
         [HttpDelete]
         [Route("{id}")]
