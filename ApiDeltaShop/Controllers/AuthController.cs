@@ -30,7 +30,7 @@ namespace ApiDeltaShop.Controllers
             if (usuarios == null)
             {
                 response.statusCode = 404;
-                response.message = "User does not exist";
+                response.message = "Usuario y/o contraseña no existe";
                 return Ok(response);
 
             }
