@@ -19,14 +19,8 @@ namespace ApiDeltaShop.Controllers
         [Route("")]
         public ActionResult ListarAll()
         {
-            var response = new Response();
             List<Categorias> categorias = db.Categorias.ToList();
-            var data = new Dictionary<string, object>()
-            {
-                {"categorias", categorias}
-            };
-            response.data = data;
-            return Ok(response);
+            return Ok(new{Categorias = categorias});
         }
 
         [HttpGet]
