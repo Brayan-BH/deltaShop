@@ -12,7 +12,7 @@ namespace ApiDeltaShop.MyDb.Tables
         public string? codigo { get; set; } 
         public string? modelo { get; set; } 
         public string? color { get; set;} 
-        public float? precio { get; set;}
+        public decimal? precio { get; set;}
         public string? imagen { get; set;} 
         public int idCategoria { get; set; }
         // public int idEstado { get; set; }
