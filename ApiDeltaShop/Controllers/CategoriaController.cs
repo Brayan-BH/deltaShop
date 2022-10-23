@@ -68,16 +68,16 @@ namespace ApiDeltaShop.Controllers
         }
 
         [HttpPut]
-        [Route("/update/cat/{id}")]
-        public ActionResult Actualizar([FromRoute] int id, [FromBody] Categorias categoriaDatos)
+        [Route("/update/cat/{idCategoria}")]
+        public ActionResult Actualizar([FromRoute] int idCategoria, [FromBody] Categorias categoriaDatos)
         {
             var response = new Response();
             Categorias? categorias = db.Categorias
-                .Where(c => c.idCategoria == id)
+                .Where(c => c.idCategoria == idCategoria)
                 .FirstOrDefault();
             if (categorias == null)
             {
-                return NotFound(new { message = "Categoria no encontrado con el id: " + id });
+                return NotFound(new { message = "Categoria no encontrado con el id: " + idCategoria });
 
             }
             categorias.nombreCategoria = categoriaDatos.nombreCategoria;
