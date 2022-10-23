@@ -16,7 +16,7 @@ namespace ApiDeltaShop.Controllers
         }
 
         [HttpGet]
-        [Route("")]
+        [Route("/get/a-cli/")]
         public ActionResult Listar()
         {
             var response = new Response();
@@ -30,23 +30,29 @@ namespace ApiDeltaShop.Controllers
         }
 
         [HttpPost]
-        [Route("")]
+        [Route("/create/cli/")]
         public ActionResult Crear([FromBody] UsuarioCliente usuarioClientes)
         {
+            var response = new Response();
             db.UsuarioClientes.Add(usuarioClientes);
             db.SaveChanges();
-            return Ok(usuarioClientes);
-
+            var data = new Dictionary<string, object>()
+            {
+                {"usuarioClientes", usuarioClientes}
+            };
+            response.data = data;
+            return Ok(response);
         }
 
         [HttpPut]
-        [Route("{idUsuarioCLiente}")]
+        [Route("/update/o-clie/{idUsuarioCLiente}")]
         public ActionResult Actualizar([FromRoute] int idUsuarioCLiente, [FromBody] UsuarioCliente usuarioClientesDato)
         {
-            UsuarioCliente? usuarioCliente = db.UsuarioClientes
+            var response = new Response();
+            UsuarioCliente? usuarioClientes = db.UsuarioClientes
                 .Where(uc => uc.idCliente == idUsuarioCLiente)
                 .FirstOrDefault();
-            if (usuarioCliente == null)
+            if (usuarioClientes == null)
             {
                 return NotFound(new { message = "Categoria no encontrado con el id: " + idUsuarioCLiente });
 
@@ -54,8 +60,33 @@ namespace ApiDeltaShop.Controllers
             usuarioClientesDato.password = usuarioClientesDato.password;
 
             db.SaveChanges();
-            return NoContent();
+            var data = new Dictionary<string, object>()
+            {
+                {"usuarioClientes", usuarioClientesDato}
+            };
+            response.data = data;
+            return Ok(response);
+        }
 
+        [HttpGet]
+        [Route("/get/o-user-cli/{idUsuarioCLiente}")]
+        public ActionResult ObtenerPorId([FromRoute] int idUsuarioCLiente)
+        {
+            var response = new Response();
+            UsuarioCliente? usuarioClientes = db.UsuarioClientes
+                .Where(uc => uc.idCliente == idUsuarioCLiente)
+                .FirstOrDefault();
+            if (usuarioClientes == null)
+            {
+                return NotFound(new { message = "Usuario Cliente no encontrado con el id: " + idUsuarioCLiente });
+
+            }
+            var data = new Dictionary<string, object>()
+            {
+                {"usuarios", usuarioClientes}
+            };
+            response.data = data;
+            return Ok(response);
         }
     }
 }

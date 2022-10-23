@@ -6,7 +6,7 @@ namespace ApiDeltaShop.Controllers
 {
     [Controller]
     [Route("/api/v1/productos")]
-    public class ProductoController: ControllerBase
+    public class ProductoController : ControllerBase
     {
         private readonly MyDbContext db;
         //Acceso a las base de datos ya no setea la configuracion a cada rato
@@ -16,7 +16,7 @@ namespace ApiDeltaShop.Controllers
         }
 
         [HttpGet]
-        [Route("")]
+        [Route("/get/a-productos/")]
         public ActionResult Listar()
         {
             var response = new Response();
@@ -31,37 +31,50 @@ namespace ApiDeltaShop.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("/get/o-producto/{id}")]
         public ActionResult ObtenerPorId([FromRoute] int id)
         {
+            var response = new Response();
             //Nulable(?) => Puede ser un producto o nulo 
-            Producto? producto = db.Productos
+            Producto? productos = db.Productos
                 .Where(p => p.idProductos == id)
                 .FirstOrDefault();
 
-            if (producto == null)
+            if (productos == null)
             {
-                return NotFound(new {message = "Producto no encontrado con el id: "+ id});
+                return NotFound(new { message = "Producto no encontrado con el id: " + id });
 
             }
-            return Ok(producto);
-
+            var data = new Dictionary<string, object>()
+            {
+                {"productos", productos}
+            };
+            response.data = data;
+            return Ok(response);
         }
 
         [HttpPost]
-        [Route("")]
-        public ActionResult Crear([FromBody] Producto producto)
+        [Route("/create/productos/")]
+        public ActionResult Crear([FromBody] Producto productos)
         {
-            db.Productos.Add(producto);
+            var response = new Response();
+
+            db.Productos.Add(productos);
             db.SaveChanges();
-           return Ok(producto);
+            var data = new Dictionary<string, object>()
+            {
+                {"productos", productos}
+            };
+            response.data = data;
+            return Ok(response);
 
         }
 
         [HttpPut]
-        [Route("{id}")]
-        public ActionResult Actualizar([FromRoute] int id ,[FromBody] Producto productoDatos)
+        [Route("/update/producto/{id}")]
+        public ActionResult Actualizar([FromRoute] int id, [FromBody] Producto productoDatos)
         {
+            var response = new Response();
             Producto? producto = db.Productos
                 .Where(p => p.idProductos == id)
                 .FirstOrDefault();
@@ -75,26 +88,30 @@ namespace ApiDeltaShop.Controllers
             producto.modelo = productoDatos.modelo;
 
             db.SaveChanges();
-            return NoContent();
-
-        }
-
-        [HttpDelete]
-        [Route("{id}")]
-        public ActionResult Eliminar([FromRoute] int id)
-        {
-            Producto? producto = db.Productos
-                .Where(p => p.idProductos == id)
-                .FirstOrDefault();
-            if (producto == null)
+            var data = new Dictionary<string, object>()
             {
-                return NotFound(new { message = "Producto no encontrado con el id: " + id });
-
-            }
-            db.Productos.Remove(producto);
-            db.SaveChanges();
-            return NoContent();
-
+                {"productos", productoDatos}
+            };
+            response.data = data;
+            return Ok(response);
         }
+
+        // [HttpDelete]
+        // [Route("{id}")]
+        // public ActionResult Eliminar([FromRoute] int id)
+        // {
+        //     Producto? producto = db.Productos
+        //         .Where(p => p.idProductos == id)
+        //         .FirstOrDefault();
+        //     if (producto == null)
+        //     {
+        //         return NotFound(new { message = "Producto no encontrado con el id: " + id });
+
+        //     }
+        //     db.Productos.Remove(producto);
+        //     db.SaveChanges();
+        //     return NoContent();
+
+        // }
     }
 }

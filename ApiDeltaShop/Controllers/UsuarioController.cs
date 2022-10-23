@@ -32,18 +32,28 @@ namespace ApiDeltaShop.Controllers
         //Registra  los usuarios
         [HttpPost]
         [Route("/create-user")]
-        public ActionResult Crear([FromBody] Usuario usuario)
+        public ActionResult Crear([FromBody] Usuario usuarios)
         {
-            db.Usuarios.Add(usuario);
+            var response = new Response();
+
+            db.Usuarios.Add(usuarios);
             db.SaveChanges();
-            return Ok(usuario);
+
+            var data = new Dictionary<string, object>()
+            {
+                {"usuario", usuarios}
+            };
+            response.data = data;
+            return Ok(response);
 
         }
 
         [HttpPut]
-        [Route("{id}")]
+        [Route("/update/usuarios/{id}")]
         public ActionResult Actualizar([FromRoute] int id, [FromBody] Usuario usuarioDatos)
         {
+            var response = new Response();
+
             Usuario? usuarios = db.Usuarios
                 .Where(u => u.IdUsuarios == id)
                 .FirstOrDefault();
@@ -57,10 +67,34 @@ namespace ApiDeltaShop.Controllers
             usuarios.user = usuarioDatos.user;
 
             db.SaveChanges();
-            return NoContent();
-
+            var data = new Dictionary<string, object>()
+            {
+                {"usuarios", usuarioDatos}
+            };
+            response.data = data;   
+            return Ok(response);
         }
 
+        [HttpGet]
+        [Route("/get/o-user/{id}")]
+        public ActionResult ObtenerPorId([FromRoute] int id)
+        {
+            var response = new Response();
+            Usuario? usuarios = db.Usuarios
+                .Where(u => u.IdUsuarios == id)
+                .FirstOrDefault();
+            if (usuarios == null)
+            {
+                return NotFound(new { message = "Usuario no encontrado con el id: " + id });
+
+            }
+            var data = new Dictionary<string, object>()
+            {
+                {"usuarios", usuarios}
+            };
+            response.data = data;
+            return Ok(response);
+        }
         // [HttpGet]
         // [Route("{user}/{password}")]
         // public ActionResult ObtenerPorId([FromRoute] string user, [FromRoute] string password)

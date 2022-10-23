@@ -31,12 +31,17 @@ namespace ApiDeltaShop.Controllers
 
         [HttpPost]
         [Route("/create-rol/")]
-        public ActionResult CrearRol([FromBody] Rol rol)
+        public ActionResult CrearRol([FromBody] Rol roles)
         {
-            db.Roles.Add(rol);
+            var response = new Response();
+            db.Roles.Add(roles);
             db.SaveChanges();
-            return Ok(rol);
-
+            var data = new Dictionary<string, object>()
+            {
+                {"rol", roles}
+            };
+            response.data = data;
+            return Ok(response);
         }
     }
 }

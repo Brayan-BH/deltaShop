@@ -16,7 +16,7 @@ namespace ApiDeltaShop.Controllers
         }
 
         [HttpGet]
-        [Route("")]
+        [Route("/get/a-cat/")]
         public ActionResult ListarAll()
         {
             var response = new Response();
@@ -30,10 +30,10 @@ namespace ApiDeltaShop.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("/get/o-cat/{id}")]
         public ActionResult ObtenerPorId([FromRoute] int id)
         {
-
+            var response = new Response();
             Categorias? categorias = db.Categorias
                 .Where(c => c.idCategoria == id)
                 .FirstOrDefault();
@@ -42,24 +42,36 @@ namespace ApiDeltaShop.Controllers
                 return NotFound(new { message = "Categoria no encontrado con el id: " + id });
 
             }
-            return Ok(categorias);
-
+            var data = new Dictionary<string, object>()
+            {
+                {"categorias", categorias}
+            };
+            response.data = data;
+            return Ok(response);
         }
 
         [HttpPost]
-        [Route("")]
-        public ActionResult Crear([FromBody] Categorias categoria)
+        [Route("/create/cat/")]
+        public ActionResult Crear([FromBody] Categorias categorias)
         {
-            db.Categorias.Add(categoria);
-            db.SaveChanges();
-            return Ok(categoria);
+            var response = new Response();
 
+            db.Categorias.Add(categorias);
+            db.SaveChanges();
+
+            var data = new Dictionary<string, object>()
+            {
+                {"categorias", categorias}
+            };
+            response.data = data;
+            return Ok(response);
         }
 
         [HttpPut]
-        [Route("{id}")]
+        [Route("/update/cat/{id}")]
         public ActionResult Actualizar([FromRoute] int id, [FromBody] Categorias categoriaDatos)
         {
+            var response = new Response();
             Categorias? categorias = db.Categorias
                 .Where(c => c.idCategoria == id)
                 .FirstOrDefault();
@@ -71,26 +83,30 @@ namespace ApiDeltaShop.Controllers
             categorias.nombreCategoria = categoriaDatos.nombreCategoria;
 
             db.SaveChanges();
-            return NoContent();
-
-        }
-
-        [HttpDelete]
-        [Route("{id}")]
-        public ActionResult Eliminar([FromRoute] int id)
-        {
-            Categorias? categorias = db.Categorias
-                .Where(c => c.idCategoria == id)
-                .FirstOrDefault();
-            if (categorias == null)
+            var data = new Dictionary<string, object>()
             {
-                return NotFound(new { message = "Categoria no encontrado con el id: " + id });
-
-            }
-            db.Categorias.Remove(categorias);
-            db.SaveChanges();
-            return NoContent();
-
+                {"categorias", categoriaDatos}
+            };
+            response.data = data;
+            return Ok(response);
         }
+
+        // [HttpDelete]
+        // [Route("{id}")]
+        // public ActionResult Eliminar([FromRoute] int id)
+        // {
+        //     Categorias? categorias = db.Categorias
+        //         .Where(c => c.idCategoria == id)
+        //         .FirstOrDefault();
+        //     if (categorias == null)
+        //     {
+        //         return NotFound(new { message = "Categoria no encontrado con el id: " + id });
+
+        //     }
+        //     db.Categorias.Remove(categorias);
+        //     db.SaveChanges();
+        //     return NoContent();
+
+        // }
     }
 }
